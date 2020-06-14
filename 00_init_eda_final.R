@@ -72,4 +72,8 @@ prep
 #min
 distribution_min <- data.table(Lat_min = min(prep[, Lat_prep]), Lon_min = min(prep[, Lon_prep]), Alt_min = min(prep[, Alt_prep], na.rm = TRUE))
 distribution_min
-distribution_max <- data.table(Lat_max = max(prep[, Lat_prep]). Lon_max = max(prep[, Lon_prep]), Alt_max = max(prep[, Alt_prep], na.rm=TRUE))
+distribution_max <- data.table(Lat_max = max(prep[, Lat_prep]), Lon_max = max(prep[, Lon_prep]), Alt_max = max(prep[, Alt_prep], na.rm=TRUE))
+distribution_max
+distribution_means <- data.table(Lat_mean = mean(prep[, Lat_prep]), Lon_mean = mean(prep[, Lon_prep]), Alt_mean = mean(prep[, Alt_prep], na.rm=TRUE)) 
+distribution_means
+#euclidian distribution complete
