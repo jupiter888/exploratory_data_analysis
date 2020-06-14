@@ -10,6 +10,7 @@ runoff_info[, ]
 for(country in 1:length(runoff_info[, Country]) ){
   str(runoff_info[country, Country, by=Station])
 }
+runoff_info$Country
 #clean version showing all countries
 ro_country_count <- data.table(Country = unique(runoff_info[, Country]))
 ro_country_count
@@ -74,6 +75,14 @@ distribution_min <- data.table(Lat_min = min(prep[, Lat_prep]), Lon_min = min(pr
 distribution_min
 distribution_max <- data.table(Lat_max = max(prep[, Lat_prep]), Lon_max = max(prep[, Lon_prep]), Alt_max = max(prep[, Alt_prep], na.rm=TRUE))
 distribution_max
-distribution_means <- data.table(Lat_mean = mean(prep[, Lat_prep]), Lon_mean = mean(prep[, Lon_prep]), Alt_mean = mean(prep[, Alt_prep], na.rm=TRUE)) 
+distribution_means <- data.table(Lat_mean = mean(prep[, Lat_prep]), Lon_mean = mean(prep[, Lon_prep]), Alt_mean = round(mean(prep[, Alt_prep], na.rm=TRUE,0)))
 distribution_means
-#euclidian distribution complete
+#euclidian distributions complete
+
+#5-Which is the distribution of record length?
+runoff_info
+str(runoff_info)
+prept <- data.table(Sname = runoff_info[, Station], Nyears = runoff_info[, N.Years])
+prept
+distribution_Nyears <- data.table(Min_Years = min(prept[, Nyears]), Max_Years = max(prept[, Nyears]), Mean_Years= round(mean(prept[, Nyears]),0) )
+distribution_Nyears
