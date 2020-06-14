@@ -6,3 +6,11 @@ file.exists("~/.ssh/id_rsa.pub")
 #cloned into exploratory_data_analysis
 #stopping github mess for now
 #continuing to code R for project
+
+
+
+
+
+
+
+    #connecting to remote test
