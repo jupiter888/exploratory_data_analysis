@@ -14,7 +14,6 @@ for(country in 1:length(runoff_info[, Country]) ){
 ro_country_count <- data.table(Country = unique(runoff_info[, Country]))
 ro_country_count
 #19 different countries
-
 #Continents
 station_continents <- runoff_info[, .(Station, Continent) ]
 station_continents
@@ -38,7 +37,7 @@ for(a in 1:length(runoff_info[, Station]) ){
   }
 }
 ro_countries #here we see the count max 78 in Germany
-#2 cont'd--How many rivers* exist per country?
+#2 cont'd--How many *rivers exist per country?
 ro_rivers <- data.table(Country = unique(runoff_info[, Country]), Rivers=0)
 ro_rivers
 for(a in 1:length(runoff_info[, River]) ){
@@ -65,10 +64,12 @@ ro_stations ##RStudio major latency noted in console
 most_stations_river <- max(ro_stations$Stations)
 most_stations_river #danube has 13 stations, max count
 
-
-
-
-
-
-
-
+#4 Which is the distribution of stations in space (latitude, longitude and altitude)?
+#prep a table to find the value distributions
+prep <- data.table(Station_prep = runoff_info[, Station], Lat_prep = runoff_info[, Lat], Lon_prep = runoff_info[, Lon], Alt_prep = runoff_info[, Alt])
+prep
+#consider NA values in next step with na.rm=TRUE
+#min
+distribution_min <- data.table(Lat_min = min(prep[, Lat_prep]), Lon_min = min(prep[, Lon_prep]), Alt_min = min(prep[, Alt_prep], na.rm = TRUE))
+distribution_min
+distribution_max <- data.table(Lat_max = max(prep[, Lat_prep]). Lon_max = max(prep[, Lon_prep]), Alt_max = max(prep[, Alt_prep], na.rm=TRUE))
