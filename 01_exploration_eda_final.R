@@ -39,8 +39,14 @@ for (a in 1:length(runoff_snames$id)) {
 } 
 runoff_day_stats$day_coeff_var <- runoff_day_coeff[, coeff_var_day]
 runoff_day_stats #now with the snames and coefficient variation in one table
+ro_mean_days_stations <- runoff_day_stats[, .(mean_day), by=sname]
+ ggplot(ro_mean_days_stations, aes(x=sname ,y=mean_day))+
+  geom_point()+
+   theme_classic()+
+   labs(x='Station', y='Mean Daily runoff')
 ################################################################################
-#exploration of runoff_year
+#exploration continued
 str(runoff_year)
 runoff_year
+runoff_info
 
